@@ -33,8 +33,8 @@ $(function() {
          */
         it('URLs are defined and not empty', function() {
             for(let feed of allFeeds) {
-                expect(feed.url).toBeDefined();
-                expect(feed.url).not.toBe('');
+                expect(feed['url']).toBeDefined();
+                expect(feed['url'].length).not.toBe(0);
              }
         });
 
@@ -44,8 +44,8 @@ $(function() {
          */
         it('names are defined and not empty', function() {
             for(let feed of allFeeds) {
-                expect(feed.name).toBeDefined();
-                expect(feed.name).not.toBe('');
+                expect(feed['name']).toBeDefined();
+                expect(feed['name'].length).not.toBe(0);
             }
         })
     });
@@ -53,17 +53,20 @@ $(function() {
 
        /* TODO: Write a new test suite named "The menu" */
 
-    describe('The menu', function(){
+    describe('The menu', function() {
         
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+        let pagefeed = document.body;
+        let menu = document.getElementsByClassName('slide-menu');
+        let iconmenu = document.querySelector('i');
 
-         it('element is hidden by default', function(){
-
-         })
+        it('element is hidden by default', function() {
+            expect(pagefeed).toHaveClass('menu-hidden');
+        })
 
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -71,10 +74,14 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
 
-          it('changes when menu icon is cliked', function() {
+          it('changes when menu icon is clicked', function() {
+            iconmenu.addEventListener('click', function(){
+                let togglemenu = pagefeed.classList.toggle('slide-menu');
+                expect()
+            })
+          });
+    })
 
-          })
-        })
 
 
     /* TODO: Write a new test suite named "Initial Entries" */
