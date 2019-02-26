@@ -61,8 +61,9 @@ $(function() {
          * hiding/showing of the menu element.
          */
         let pagefeed = document.body;
-        let menu = document.getElementsByClassName('slide-menu');
-        let iconmenu = document.querySelector('i');
+        let menu = document.querySelector('.slide-menu');
+        let iconmenu = document.querySelector('.icon-list');
+        
 
         it('element is hidden by default', function() {
             expect(pagefeed).toHaveClass('menu-hidden');
@@ -75,9 +76,9 @@ $(function() {
           */
 
           it('changes when menu icon is clicked', function() {
+              
             iconmenu.addEventListener('click', function(){
-                let togglemenu = pagefeed.classList.toggle('slide-menu');
-                expect()
+                
             })
           });
     })
