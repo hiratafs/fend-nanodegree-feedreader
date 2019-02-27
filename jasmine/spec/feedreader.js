@@ -62,10 +62,10 @@ $(function() {
          */
         let pagefeed = document.body;
         let menu = document.querySelector('.slide-menu');
-        let iconmenu = document.querySelector('.icon-list');
-        
+        let iconmenu = document.querySelectorAll('a.menu-icon-list');
+        let menuClicked;
 
-        it('element is hidden by default', function() {
+        it('is hidden by default', function() {
             expect(pagefeed).toHaveClass('menu-hidden');
         })
 
@@ -74,13 +74,16 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+        
 
-          it('changes when menu icon is clicked', function() {
-              
-            iconmenu.addEventListener('click', function(){
-                
+        it('changes when menu icon is clicked', function() {
+            $(iconmenu).on('click', function() {
+                expect(pagefeed).not.toHaveClass('menu-hidden');
             })
-          });
+            $(iconmenu).trigger('click');
+        });
+
+
     })
 
 
@@ -93,7 +96,12 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-        it('')
+
+        let containerfeed = document.querySelector('.feed');
+        let articleEntry = document.querySelectorAll('article.entry')
+        it('loadFeed works properly', function() {
+            //expect(containerfeed);
+        })
     })
         
 
@@ -104,8 +112,8 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        it('new feed is loaded', function() {
-
+        it('is loaded by loadFeed that the content changes', function() {
+            //expect()
         })
     })
 
