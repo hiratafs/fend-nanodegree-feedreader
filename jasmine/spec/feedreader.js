@@ -94,14 +94,19 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
 
-        beforeEach(function(){
-
+        beforeEach(function(done){
+            loadFeed(0, function(){
+                done();
+            })
         })
 
-        let containerfeed = document.querySelector('.feed');
-        let articleEntry = document.querySelectorAll('article.entry');
-        it('loadFeed works properly', function() {
-            expect(loadFeed())
+        
+        //let articleEntry = document.querySelectorAll('.entry-link');
+
+        it('loadFeed has at least a single .entry within the .feed container', function() {
+            let container = document.querySelectorAll('.feed .entry');
+            let arrayContainer = Array.prototype.slice.call(container);
+            expect(arrayContainer.length).toBeGreaterThan(0);
             
         })
     })
@@ -109,15 +114,24 @@ $(function() {
 
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
-   
+        let firstfeed;
+        let newfeed;
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        it('is loaded by loadFeed and the content changes', function() {
-            //expect()
+                
+         beforeEach(function(done) {
+            loadFeed(0, function() {
+                firstfeed = document.querySelector('.feed').innerHTML;
+                loadFeed(1, done);
+            });
+         }) 
 
-        })
-    })
+        it('loads new feed', function() {
+            newfeed = document.querySelector('.feed');
+            expect(newfeed.innerHTML).not.toBe(firstfeed);
+           });
+    });
 
 }());
