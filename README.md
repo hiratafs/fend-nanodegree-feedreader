@@ -8,5 +8,5 @@ Este projeto consiste em testar uma aplicação de leitor de notícias já forne
 
 ## Recursos utilizados neste projeto
 1. [Visual Studio Code](https://code.visualstudio.com/)
-2. [Jasmine] (https://jasmine.github.io/)
-3. [Github] (https://github.com)
+2. [Jasmine](https://jasmine.github.io/)
+3. [Github](https://github.com)
